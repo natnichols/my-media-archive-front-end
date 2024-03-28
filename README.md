@@ -1,0 +1,3 @@
+## Attributions 🎉
+* **Decoupled MERN Stack with JWT Auth Template** is from [GA's SEI Github Repository](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end "SEI-Remote Decoupled MERN Stack with JWT Auth Template - Front End GitHub Repo")
+* **This app uses the [TMDB API](https://developer.themoviedb.org/docs/getting-started "The Movie Database (TMDB) API - Getting Started") but is not endorsed or certified by TMDB.**
