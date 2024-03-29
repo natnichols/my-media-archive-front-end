@@ -1,6 +1,9 @@
 // npm modules
 import { useState } from 'react'
 
+// services
+import * as tvShowService from '../../services/tvShowService'
+
 // css
 import styles from './TvShowSearch.module.css'
 
@@ -15,8 +18,14 @@ const TvShowSearch = () => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
-  const handleSubmit = evt => {
+  const handleSubmit = async evt => {
     evt.preventDefault()
+    try {
+      const data = await tvShowService.tvShowSearch(formData)
+      console.log(data)
+    } catch (err) {
+      console.log(err)
+    }
     // MAKE API CALL USING STATE
     // SET RESULTS WITH RETURNED DATA
   }
