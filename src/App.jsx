@@ -8,6 +8,9 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import TvShowSearch from './pages/TvShowSearch/TvShowSearch'
+import TvShowDetails from './pages/TvShowDetails/TvShowDetails'
+import TvShowIndex from './pages/TvShowIndex/TvShowIndex'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -38,6 +41,10 @@ function App() {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
+        <Route path="/tvshows" element={<TvShowIndex />} />
+        <Route path="/tvshows/:tmdbId" element={<TvShowDetails />} />
+        <Route path="/tvshows/search" element={<TvShowSearch />} />
+        
         <Route
           path="/profiles"
           element={
