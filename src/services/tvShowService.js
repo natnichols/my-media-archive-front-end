@@ -15,6 +15,7 @@ export async function tvShowSearch(query) {
     })
     return await res.json()
   } catch (err) {
-    throw new Error(err)
+    throw new Error(err),
+    console.log(tokenService.getToken())
   }
 }

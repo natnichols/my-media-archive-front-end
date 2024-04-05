@@ -3,9 +3,11 @@ import { useState } from 'react'
 
 // services
 import * as tvShowService from '../../services/tvShowService'
+import * as tokenService from '../../services/tokenService'
 
 // css
 import styles from './TvShowSearch.module.css'
+import { NavLink } from 'react-router-dom'
 
 const TvShowSearch = () => {
   const [formData, setFormData] = useState({
@@ -23,11 +25,10 @@ const TvShowSearch = () => {
     try {
       const data = await tvShowService.tvShowSearch(formData)
       console.log(data)
+      setResults(data)
     } catch (err) {
       console.log(err)
     }
-    // MAKE API CALL USING STATE
-    // SET RESULTS WITH RETURNED DATA
   }
 
   return (
@@ -37,6 +38,23 @@ const TvShowSearch = () => {
         <input type="text" name="query" onChange={handleChange}/>
         <button type="submit">Search</button>
       </form>
+      {console.log(results.results?.length)}
+      {
+        results.results?.length ?
+        <div className={styles.resultContainer}>
+          {results.results?.map(tvShow => 
+            // <NavLink to={}>
+            <div className={styles.tvShowCard} key={tvShow.id}>
+                {/* <img src="" alt="" /> */}
+                <h3>{tvShow.name}</h3>
+                <h3>Test</h3>
+              </div>
+            // </NavLink>
+          )}
+        </div>
+        :
+        <h2>Search for a TV Show!</h2>
+      }
     </>
   )
 }
