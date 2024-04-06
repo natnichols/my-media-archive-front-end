@@ -38,7 +38,7 @@ const TvShowSearch = () => {
         <input type="text" name="query" onChange={handleChange}/>
         <button type="submit">Search</button>
       </form>
-      {console.log(results.results?.length)}
+      {/* {console.log(results.results?.length)} */}
       {
         results.results?.length ?
         <div className={styles.resultContainer}>
@@ -47,7 +47,7 @@ const TvShowSearch = () => {
             <div className={styles.tvShowCard} key={tvShow.id}>
                 {/* <img src="" alt="" /> */}
                 <h3>{tvShow.name}</h3>
-                <h3>Test</h3>
+                {/* <h3>Test</h3> */}
               </div>
             // </NavLink>
           )}
