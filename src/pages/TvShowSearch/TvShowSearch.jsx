@@ -40,9 +40,9 @@ const TvShowSearch = () => {
       </form>
       {/* {console.log(results.results?.length)} */}
       {
-        results.results?.length ?
+        results?.length ?
         <div className={styles.resultContainer}>
-          {results.results?.map(tvShow => 
+          {results?.map(tvShow => 
             // <NavLink to={}>
             <div className={styles.tvShowCard} key={tvShow.id}>
                 {/* <img src="" alt="" /> */}
