@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 // services
 import * as tvShowService from '../../services/tvShowService'
-import * as tokenService from '../../services/tokenService'
 
 // css
 import styles from './TvShowSearch.module.css'
@@ -43,13 +42,12 @@ const TvShowSearch = () => {
         results?.length ?
         <div className={styles.resultContainer}>
           {results?.map(tvShow => 
-            // <NavLink to={}>
-            <div className={styles.tvShowCard} key={tvShow.id}>
-                {/* <img src="" alt="" /> */}
+            <NavLink to={`/tvShows/${tvShow.id}`} key={tvShow.id}>
+              <div className={styles.tvShowCard}>
+                {/* <img src={tvShow.poster_path} alt="" /> */}
                 <h3>{tvShow.name}</h3>
-                {/* <h3>Test</h3> */}
               </div>
-            // </NavLink>
+            </NavLink>
           )}
         </div>
         :
