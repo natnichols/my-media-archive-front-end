@@ -8,6 +8,9 @@ import * as tvShowService from '../../services/tvShowService'
 // css
 import styles from './TvShowDetails.module.css'
 
+// assets
+import defaultImg from '../../assets/archer-season-9.jpg'
+
 const TvShowDetails = () => {
   const { tmdbId } = useParams()
   const [tvShow, setTvShow] = useState({})
@@ -25,7 +28,7 @@ const TvShowDetails = () => {
       {tvShow.id ?
         <div>
           <h1>{tvShow.name}</h1>
-          {/* <img src={tvShow.poster_path} alt="" /> */}
+          <img src={defaultImg} alt="default image of archer season 9 poster" />
         </div>
       :
         <h2>Loading...</h2>
