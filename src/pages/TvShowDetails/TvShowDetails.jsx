@@ -27,8 +27,14 @@ const TvShowDetails = () => {
     <>
       {tvShow.id ?
         <div className={styles.tvShowContainer}>
-          <h1>{tvShow.name}</h1>
+          <h1>{tvShow.name} ({tvShow.first_air_date.slice(0,4)}-{tvShow.last_air_date.slice(0,4)})</h1>
+          <a href={tvShow.homepage}>Show Homepage</a>
+          <h4><i>{tvShow.tagline}</i></h4>
           <img src={defaultImg} alt="default image of archer season 9 poster" />
+          <h3>Number of Seasons: {tvShow.number_of_seasons}</h3>
+          <h3>Status: {tvShow.status}</h3>
+          <p>{tvShow.overview}</p>
+          <h1>Seasons Component</h1>
         </div>
       :
         <h2>Loading...</h2>
