@@ -24,6 +24,7 @@ body {
 
 a,
 a:visited {
-  color: #00d8ff
+  color: #00d8ff;
+  text-decoration: none;
 }
 
