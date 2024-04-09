@@ -8,6 +8,9 @@ import * as tvShowService from '../../services/tvShowService'
 import styles from './TvShowSearch.module.css'
 import { NavLink } from 'react-router-dom'
 
+// assets
+import defaultImg from '../../assets/archer-season-9.jpg'
+
 const TvShowSearch = () => {
   const [formData, setFormData] = useState({
     query: ''
@@ -44,7 +47,7 @@ const TvShowSearch = () => {
           {results?.map(tvShow => 
             <NavLink to={`/tvShows/${tvShow.id}`} key={tvShow.id}>
               <div className={styles.tvShowCard}>
-                {/* <img src={tvShow.poster_path} alt="" /> */}
+                <img src={defaultImg} alt="default image of archer season 9 poster" />
                 <h3>{tvShow.name}</h3>
               </div>
             </NavLink>

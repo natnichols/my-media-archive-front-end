@@ -8,7 +8,7 @@
 .tvShowCard {
   margin: 20px;
   width: 250px;
-  height: 300px;
+  height: 350px;
   border: 3px solid cornflowerblue;
   border-radius: 8px;
   display: flex;
@@ -16,6 +16,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.tvShowCard > img {
+  width: 175px;
+  padding: 5px;
 }
 
 button {
