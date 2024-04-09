@@ -28,3 +28,11 @@ a:visited {
   text-decoration: none;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
