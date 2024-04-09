@@ -14,6 +14,7 @@ import defaultImg from '../../assets/archer-season-9.jpg'
 const TvShowDetails = () => {
   const { tmdbId } = useParams()
   const [tvShow, setTvShow] = useState({})
+  const [displaySeasons, setDisplaySeasons] = useState(false)
   
   useEffect(() => {
     const fetchTvShowDetails = async () => {
@@ -22,6 +23,10 @@ const TvShowDetails = () => {
     }
     fetchTvShowDetails()
   }, [tmdbId])
+
+  const handleToggleSeasonsDisplay = () => {
+    setDisplaySeasons(!displaySeasons)
+  }
 
   return (
     <>
@@ -34,7 +39,10 @@ const TvShowDetails = () => {
           <h3>Number of Seasons: {tvShow.number_of_seasons}</h3>
           <h3>Status: {tvShow.status}</h3>
           <p>{tvShow.overview}</p>
-          <h1>Seasons Component</h1>
+          <button onClick={handleToggleSeasonsDisplay} className={styles.seasonsDisplay}>{displaySeasons ? 'Hide' : 'Show'} Seasons Component</button>
+          {displaySeasons && 
+            <h1>Seasons Component</h1>
+          }
         </div>
       :
         <h2>Loading...</h2>

@@ -8,3 +8,8 @@
 .tvShowContainer > img {
   width: 250px;
 }
+
+.seasonsDisplay {
+  width: 225px;
+  height: 60px;
+}
