@@ -11,7 +11,7 @@ import styles from './TvShowDetails.module.css'
 // assets
 import defaultImg from '../../assets/archer-season-9.jpg'
 
-const TvShowDetails = () => {
+const TvShowDetails = (props) => {
   const { tmdbId } = useParams()
   const [tvShow, setTvShow] = useState({})
   const [displaySeasons, setDisplaySeasons] = useState(false)
@@ -28,6 +28,12 @@ const TvShowDetails = () => {
     setDisplaySeasons(!displaySeasons)
   }
 
+
+  const handleFaveTvShow = () => {
+    // will run the fn passed down as a prop
+    props.handleAddFaveTvShow({title: tvShow.name, tmdbId: tmdbId})
+  }
+
   return (
     <>
       {tvShow.id ?
@@ -39,7 +45,10 @@ const TvShowDetails = () => {
           <h3>Number of Seasons: {tvShow.number_of_seasons}</h3>
           <h3>Status: {tvShow.status}</h3>
           <p>{tvShow.overview}</p>
-          <button onClick={handleToggleSeasonsDisplay} className={styles.seasonsDisplay}>{displaySeasons ? 'Hide' : 'Show'} Seasons Component</button>
+          <div className={styles.btnContainer}>
+            <button onClick={handleFaveTvShow} className={styles.faveTvShow}>Add to Fave Shows</button>
+            <button onClick={handleToggleSeasonsDisplay} className={styles.seasonsDisplay}>{displaySeasons ? 'Hide' : 'Show'} Seasons Component</button>
+          </div>
           {displaySeasons && 
             <h1>Seasons Component</h1>
           }

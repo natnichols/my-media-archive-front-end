@@ -31,3 +31,19 @@ export async function tvShowDetails(id) {
     throw new Error(err)
   }
 }
+
+export async function faveTvShow(tvShowData) {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}` ,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(tvShowData)
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
