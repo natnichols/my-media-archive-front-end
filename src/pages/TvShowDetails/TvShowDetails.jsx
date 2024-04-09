@@ -26,7 +26,7 @@ const TvShowDetails = () => {
   return (
     <>
       {tvShow.id ?
-        <div>
+        <div className={styles.tvShowContainer}>
           <h1>{tvShow.name}</h1>
           <img src={defaultImg} alt="default image of archer season 9 poster" />
         </div>
