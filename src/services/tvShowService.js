@@ -32,7 +32,7 @@ export async function tvShowDetails(id) {
   }
 }
 
-export async function faveTvShow(tvShowData) {
+export async function addFaveTvShow(tvShowData) {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',

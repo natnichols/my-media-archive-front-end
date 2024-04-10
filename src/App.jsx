@@ -51,7 +51,7 @@ function App() {
 
   const handleAddFaveTvShow = async (tvShowData) => {
     // make API call with title/tmdbId of tvShow
-    const updatedProfile = await tvShowService.faveTvShow(tvShowData)
+    const updatedProfile = await tvShowService.addFaveTvShow(tvShowData)
     // update profile state, adding new fave show
     setProfile(updatedProfile)
   }
