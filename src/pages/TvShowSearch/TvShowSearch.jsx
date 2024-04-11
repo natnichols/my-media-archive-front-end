@@ -9,7 +9,7 @@ import styles from './TvShowSearch.module.css'
 import { NavLink } from 'react-router-dom'
 
 // assets
-import defaultImg from '../../assets/archer-season-9.jpg'
+// import defaultImg from '../../assets/archer-season-9.jpg'
 
 const TvShowSearch = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +17,8 @@ const TvShowSearch = () => {
   })
   
   const [results, setResults] = useState([])
+
+  const tmdbImgUrl = `https://image.tmdb.org/t/p/w500`
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -47,7 +49,8 @@ const TvShowSearch = () => {
           {results?.map(tvShow => 
             <NavLink to={`/tvShows/${tvShow.id}`} key={tvShow.id}>
               <div className={styles.tvShowCard}>
-                <img src={defaultImg} alt="default image of archer season 9 poster" />
+                <img src={`${tmdbImgUrl}${tvShow.poster_path}`} alt="image of tv show poster" />
+                {/* need to add conditional + default photo if tvShow.poster_path = null*/}
                 <h3>{tvShow.name}</h3>
               </div>
             </NavLink>

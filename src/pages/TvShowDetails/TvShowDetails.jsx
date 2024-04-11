@@ -9,13 +9,18 @@ import * as tvShowService from '../../services/tvShowService'
 import styles from './TvShowDetails.module.css'
 
 // assets
-import defaultImg from '../../assets/archer-season-9.jpg'
+// import defaultImg from '../../assets/archer-season-9.jpg'
 
 const TvShowDetails = (props) => {
   const { tmdbId } = useParams()
   const [tvShow, setTvShow] = useState({})
   const [displaySeasons, setDisplaySeasons] = useState(false)
+
+  const tmdbImgUrl = `https://image.tmdb.org/t/p/w500`
   
+  console.log(tmdbId)
+  console.log(props.profile.faveTvShows)
+
   useEffect(() => {
     const fetchTvShowDetails = async () => {
       const data = await tvShowService.tvShowDetails(tmdbId)
@@ -28,10 +33,10 @@ const TvShowDetails = (props) => {
     setDisplaySeasons(!displaySeasons)
   }
 
-
   const handleFaveTvShow = () => {
     // will run the fn passed down as a prop
     props.handleAddFaveTvShow({title: tvShow.name, tmdbId: tmdbId})
+    
   }
 
   return (
@@ -41,11 +46,13 @@ const TvShowDetails = (props) => {
           <h1>{tvShow.name} ({tvShow.first_air_date.slice(0,4)}-{tvShow.last_air_date.slice(0,4)})</h1>
           <a href={tvShow.homepage}>Show Homepage</a>
           <h4><i>{tvShow.tagline}</i></h4>
-          <img src={defaultImg} alt="default image of archer season 9 poster" />
+          <img src={`${tmdbImgUrl}${tvShow.poster_path}`} alt="image of tv show poster" />
+          {/* need to add conditional + default photo if tvShow.poster_path = null*/}
           <h3>Number of Seasons: {tvShow.number_of_seasons}</h3>
           <h3>Status: {tvShow.status}</h3>
           <p>{tvShow.overview}</p>
           <div className={styles.btnContainer}>
+            {/*props.profile.faveTvShows.some(tvsh => tvsh.tmdbId === tmdbId) ? 'true' : 'false'*/} {/* <--- this doesn't appear to be working correctly, shows 'false' regardless if show is in array */}
             <button onClick={handleFaveTvShow} className={styles.faveTvShow}>Add to Fave Shows</button>
             <button onClick={handleToggleSeasonsDisplay} className={styles.seasonsDisplay}>{displaySeasons ? 'Hide' : 'Show'} Seasons Component</button>
           </div>
