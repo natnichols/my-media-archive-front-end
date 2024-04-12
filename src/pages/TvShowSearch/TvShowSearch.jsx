@@ -11,14 +11,14 @@ import { NavLink } from 'react-router-dom'
 // assets
 // import defaultImg from '../../assets/archer-season-9.jpg'
 
-const TvShowSearch = () => {
+const TvShowSearch = ({ tmdbImgUrl}) => {
   const [formData, setFormData] = useState({
     query: ''
   })
   
   const [results, setResults] = useState([])
 
-  const tmdbImgUrl = `https://image.tmdb.org/t/p/w500`
+  // const tmdbImgUrl = `https://image.tmdb.org/t/p/w500`
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})

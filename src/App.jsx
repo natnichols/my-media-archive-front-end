@@ -76,7 +76,11 @@ function App() {
             handleAddFaveTvShow={handleAddFaveTvShow} 
           />} 
         />
-        <Route path="/tvshows/search" element={<TvShowSearch />} />
+        <Route path="/tvshows/search" element={
+          <TvShowSearch 
+            tmdbImgUrl={tmdbImgUrl}
+          />} 
+        />
         
         <Route
           path="/profiles"

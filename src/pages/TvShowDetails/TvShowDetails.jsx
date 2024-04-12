@@ -52,7 +52,7 @@ const TvShowDetails = ({ profile, tmdbImgUrl, handleAddFaveTvShow }) => {
           <h3>Status: {tvShow.status}</h3>
           <p>{tvShow.overview}</p>
           <div className={styles.btnContainer}>
-            {/*props.profile.faveTvShows.some(tvsh => tvsh.tmdbId === tmdbId) ? 'true' : 'false'*/} {/* <--- this doesn't appear to be working correctly, shows 'false' regardless if show is in array */}
+            {/*profile.faveTvShows.some(tvsh => tvsh.tmdbId === tmdbId) ? 'true' : 'false'*/} {/* <--- this doesn't appear to be working correctly, shows 'false' regardless if show is in array */}
             <button onClick={handleFaveTvShow} className={styles.faveTvShow}>Add to Fave Shows</button>
             <button onClick={handleToggleSeasonsDisplay} className={styles.seasonsDisplay}>{displaySeasons ? 'Hide' : 'Show'} Seasons Component</button>
           </div>
