@@ -29,6 +29,8 @@ function App() {
   const [profile, setProfile] = useState({})
   const navigate = useNavigate()
 
+  const tmdbImgUrl = `https://image.tmdb.org/t/p/w500`
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -61,10 +63,16 @@ function App() {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
-        <Route path="/tvshows" element={<TvShowIndex />} />
+        <Route path="/tvshows" element={
+          <TvShowIndex 
+            profile={profile}
+            tmdbImgUrl={tmdbImgUrl}
+          />} 
+        />
         <Route path="/tvshows/:tmdbId" element={
           <TvShowDetails 
             profile={profile}
+            tmdbImgUrl={tmdbImgUrl}
             handleAddFaveTvShow={handleAddFaveTvShow} 
           />} 
         />

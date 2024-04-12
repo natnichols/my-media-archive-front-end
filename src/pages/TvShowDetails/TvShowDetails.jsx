@@ -11,15 +11,15 @@ import styles from './TvShowDetails.module.css'
 // assets
 // import defaultImg from '../../assets/archer-season-9.jpg'
 
-const TvShowDetails = (props) => {
+const TvShowDetails = ({ profile, tmdbImgUrl, handleAddFaveTvShow }) => {
   const { tmdbId } = useParams()
   const [tvShow, setTvShow] = useState({})
   const [displaySeasons, setDisplaySeasons] = useState(false)
 
-  const tmdbImgUrl = `https://image.tmdb.org/t/p/w500`
+  // const tmdbImgUrl = `https://image.tmdb.org/t/p/w500`
   
   console.log(tmdbId)
-  console.log(props.profile.faveTvShows)
+  console.log(profile.faveTvShows)
 
   useEffect(() => {
     const fetchTvShowDetails = async () => {
@@ -35,7 +35,7 @@ const TvShowDetails = (props) => {
 
   const handleFaveTvShow = () => {
     // will run the fn passed down as a prop
-    props.handleAddFaveTvShow({title: tvShow.name, tmdbId: tmdbId})
+    handleAddFaveTvShow({title: tvShow.name, tmdbId: tmdbId})
     
   }
 
